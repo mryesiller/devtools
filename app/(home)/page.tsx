@@ -27,6 +27,12 @@ const tools = [
     href: "/base64",
   },
   {
+    name: "Timestamp Converter",
+    description:
+      "Convert between Unix timestamps and readable date/time formats",
+    href: "/timestamp-converter",
+  },
+  {
     name: "URL Encoder/Decoder",
     description: "Encode or decode URLs",
     href: "/url-encoder",

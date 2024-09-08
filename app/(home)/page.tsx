@@ -17,6 +17,11 @@ const tools = [
     href: "/http-status-code-reference",
   },
   {
+    name: "IP Address Lookup",
+    description: "Look up geographical information for IP addresses",
+    href: "/ip-address-lookup",
+  },
+  {
     name: "Base64 Encoder/Decoder",
     description: "Encode or decode Base64 strings",
     href: "/base64",

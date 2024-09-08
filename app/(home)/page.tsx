@@ -7,6 +7,16 @@ const tools = [
     href: "/json-formatter",
   },
   {
+    name: "Hash Generator",
+    description: "Generate MD5, SHA-1, SHA-256, and other hash types",
+    href: "/hash-generator",
+  },
+  {
+    name: "HTTP Status Code Reference",
+    description: "Quick reference for HTTP status codes",
+    href: "/http-status-code-reference",
+  },
+  {
     name: "Base64 Encoder/Decoder",
     description: "Encode or decode Base64 strings",
     href: "/base64",

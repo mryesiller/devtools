@@ -2,6 +2,11 @@ import Link from "next/link"
 
 const tools = [
   {
+    name: "Color Generator",
+    description: "Generate and explore color palettes",
+    href: "/color-generator",
+  },
+  {
     name: "JSON Formatter",
     description: "Format and validate JSON data",
     href: "/json-formatter",

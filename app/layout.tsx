@@ -34,28 +34,28 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://devtools.tools",
+    url: "https://www.devtools.tools",
     title: "DevTools - A Collection of Developer Tools",
     description:
       "Comprehensive suite of developer tools to streamline your workflow and boost productivity.",
     siteName: "DevTools",
     images: [
       {
-        url: "https://devtools.tools/og-image.jpg",
+        url: "https://devtools.tools/images/devtools-og.png",
         width: 1200,
         height: 630,
         alt: "DevTools - A Collection of Developer Tools",
       },
     ],
   },
-  twitter: {
+  /*   twitter: {
     card: "summary_large_image",
     title: "DevTools - A Collection of Developer Tools",
     description:
       "Comprehensive suite of developer tools to streamline your workflow and boost productivity.",
     images: ["https://devtools.tools/twitter-image.jpg"],
     creator: "@MrYesiller",
-  },
+  }, */
   robots: {
     index: true,
     follow: true,

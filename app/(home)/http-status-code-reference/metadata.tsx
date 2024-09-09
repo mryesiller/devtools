@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "DevTools",
     images: [
       {
-        url: "https://your-devtools-url.com/images/http-status-code-reference-og.jpg",
+        url: "https://your-devtools-url.com/images/http-status-code-reference-og.png",
         width: 1200,
         height: 630,
         alt: "HTTP Status Code Reference Tool",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  twitter: {
+  /*  twitter: {
     card: "summary_large_image",
     title: "HTTP Status Code Reference | DevTools",
     description:
@@ -37,5 +37,5 @@ export const metadata: Metadata = {
       "https://your-devtools-url.com/images/http-status-code-reference-twitter.jpg",
     ],
     creator: "@yourtwitterhandle",
-  },
+  }, */
 }

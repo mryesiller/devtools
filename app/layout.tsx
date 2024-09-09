@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "DevTools",
     images: [
       {
-        url: "https://your-devtools-url.com/og-image.jpg",
+        url: "https://devtools.tools/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "DevTools - A Collection of Developer Tools",
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
     title: "DevTools - A Collection of Developer Tools",
     description:
       "Comprehensive suite of developer tools to streamline your workflow and boost productivity.",
-    images: ["https://your-devtools-url.com/twitter-image.jpg"],
-    creator: "@yourTwitterHandle",
+    images: ["https://devtools.tools/twitter-image.jpg"],
+    creator: "@MrYesiller",
   },
   robots: {
     index: true,

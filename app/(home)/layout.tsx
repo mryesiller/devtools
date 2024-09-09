@@ -40,11 +40,11 @@ export default function HomeLayout({
         </header>
         <main className="container mx-auto px-4 py-8 flex-1">{children}</main>
         <footer className="mt-auto border-t">
-          <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} DevTools Hub. All rights reserved.
+          <div className="container mx-auto px-4 py-6 flex flex-col sm:flex-row justify-between items-center">
+            <p className="text-sm text-muted-foreground mb-2 sm:mb-0">
+              © {new Date().getFullYear()} DevTools. All rights reserved.
             </p>
-            <nav className="flex space-x-4">
+            <nav className="flex flex-wrap justify-center sm:justify-end space-x-4">
               <Link
                 href="/about"
                 className="text-sm text-muted-foreground hover:underline"
@@ -63,6 +63,14 @@ export default function HomeLayout({
               >
                 Terms
               </Link>
+              <a
+                href="https://github.com/mryesiller"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted-foreground hover:underline"
+              >
+                @mryesiller
+              </a>
             </nav>
           </div>
         </footer>

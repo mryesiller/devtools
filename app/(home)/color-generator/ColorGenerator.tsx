@@ -48,10 +48,6 @@ export default function ColorGenerator() {
     setLightness(hsl[2])
   }, [currentColor])
 
-  useEffect(() => {
-    generatePalette()
-  }, [currentColor, paletteType])
-
   const generatePalette = useCallback(() => {
     const [h, s, l] = hslColor
     let newPalette: string[] = []
@@ -86,6 +82,10 @@ export default function ColorGenerator() {
 
     setPalette(newPalette)
   }, [hslColor, paletteType])
+
+  useEffect(() => {
+    generatePalette()
+  }, [currentColor, paletteType, generatePalette])
 
   const updateColorFromHSL = useCallback((h: number, s: number, l: number) => {
     const rgb = hslToRgb(h, s, l)

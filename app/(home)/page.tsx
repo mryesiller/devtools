@@ -37,26 +37,6 @@ const tools = [
       "Convert between Unix timestamps and readable date/time formats",
     href: "/timestamp-converter",
   },
-  {
-    name: "URL Encoder/Decoder",
-    description: "Encode or decode URLs",
-    href: "/url-encoder",
-  },
-  {
-    name: "Color Converter",
-    description: "Convert between color formats",
-    href: "/color-converter",
-  },
-  {
-    name: "Markdown Preview",
-    description: "Preview Markdown in real-time",
-    href: "/markdown-preview",
-  },
-  {
-    name: "Regex Tester",
-    description: "Test and debug regular expressions",
-    href: "/regex-tester",
-  },
 ]
 
 export default function Home() {

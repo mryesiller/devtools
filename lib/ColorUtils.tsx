@@ -30,9 +30,9 @@ export function rgbToHsl(
   b /= 255
   const max = Math.max(r, g, b),
     min = Math.min(r, g, b)
-  let h,
-    s,
-    l = (max + min) / 2
+  let h = 0
+  let s: number
+  const l = (max + min) / 2
 
   if (max === min) {
     h = s = 0 // achromatic

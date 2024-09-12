@@ -24,8 +24,13 @@ export default function HomeLayout({
         <header className="container mx-auto px-4 py-6">
           <nav className="flex justify-between items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <Logo className="w-20 h-auto" />
-              <span className="text-2xl font-bold space-x-1">DevTools</span>
+              <Logo className="w-14 h-auto" />
+              <span className="text-2xl font-bold">
+                <span className="text-2xl font-bold">
+                  <span className="text-orange-500">Dev</span>
+                  <span className="text-black dark:text-white">Tools</span>
+                </span>
+              </span>
             </Link>
             <div className="flex items-center space-x-4">
               <Link href="/">

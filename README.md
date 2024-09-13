@@ -1,6 +1,6 @@
 # DevTools
 
-![DevTools Logo](https://raw.githubusercontent.com/mryesiller/devtools/main/public/assets/readme-devtool-logo.svg)
+![DevTools Logo](https://www.devtools.tools/assets/readme-devtool-logo.svg)
 
 ## 🚀 About
 

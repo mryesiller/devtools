@@ -1,6 +1,6 @@
 # DevTools
 
-![DevTools Logo](https://www.devtools.tools/assets/readme-devtool-logo.svg)
+<img src="https://www.devtools.tools/assets/devtool-logo.svg" alt="DevTools Logo" width="100" height="100">
 
 ## 🚀 About
 

@@ -1,9 +1,9 @@
 # DevTools
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://devtools.tools/assets/logo-light-v11.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://devtools.tools/assets/logo-dark-v11.svg">
-  <img alt="DevTools Logo" src="https://devtools.tools/assets/logo-light-v11.svg" width="100" height="100">
+  <source media="(prefers-color-scheme: dark)" srcset="https://www.devtools.tools/assets/logo-light-v11.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://www.devtools.tools/assets/logo-dark-v11.svg">
+  <img alt="DevTools Logo" src="https://www.devtools.tools/assets/logo-light-v11.svg" width="100" height="100">
 </picture>
 
 ## 🚀 About

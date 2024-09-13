@@ -1,0 +1,89 @@
+{
+  "name": "TimestampConverter",
+  "description": "A tool to convert between Unix timestamp and human-readable date/time.",
+  "compositor": {
+    "components": [
+      {
+        "name": "TimestampInput",
+        "type": "input",
+        "placeholder": "Enter Unix timestamp...",
+        "className": "w-full p-2 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+      },
+      {
+        "name": "DateTimeInput",
+        "type": "input",
+        "placeholder": "Enter date/time (YYYY-MM-DD HH:mm:ss)...",
+        "className": "w-full p-2 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+      },
+      {
+        "name": "ConvertButton",
+        "type": "button",
+        "label": "Convert",
+        "className": "px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      },
+      {
+        "name": "ResultText",
+        "type": "div",
+        "className": "mt-4 text-lg",
+        "textContent": "{{resultText}}"
+      }
+    ],
+    "interactions": [
+      {
+        "event": "onClick",
+        "target": "ConvertButton",
+        "action": {
+          "type": "callFunction",
+          "function": "convertTimestamp"
+        }
+      }
+    ]
+  },
+  "functions": [
+    {
+      "name": "convertTimestamp",
+      "description": "Converts between Unix timestamp and human-readable date/time.",
+      "steps": [
+        {
+          "type": "getInputValue",
+          "inputName": "TimestampInput",
+          "variableName": "timestamp"
+        },
+        {
+          "type": "getInputValue",
+          "inputName": "DateTimeInput",
+          "variableName": "dateTime"
+        },
+        {
+          "type": "if",
+          "condition": "{{timestamp}}",
+          "then": [
+            {
+              "type": "dateFromUnixTimestamp",
+              "timestamp": "{{timestamp}}",
+              "format": "YYYY-MM-DD HH:mm:ss",
+              "variableName": "convertedDateTime"
+            },
+            {
+              "type": "setVariable",
+              "variableName": "resultText",
+              "value": "Converted Date/Time: {{convertedDateTime}}"
+            }
+          ],
+          "else": [
+            {
+              "type": "dateToUnixTimestamp",
+              "dateTime": "{{dateTime}}",
+              "variableName": "convertedTimestamp"
+            },
+            {
+              "type": "setVariable",
+              "variableName": "resultText",
+              "value": "Converted Timestamp: {{convertedTimestamp}}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

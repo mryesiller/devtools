@@ -1,0 +1,111 @@
+{
+  "name": "HTTPStatusCodeReference",
+  "description": "A handy reference tool for HTTP status codes.",
+  "compositor": {
+    "components": [
+      {
+        "name": "SearchInput",
+        "type": "input",
+        "placeholder": "Search status codes...",
+        "className": "w-full p-2 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      },
+      {
+        "name": "StatusCodeList",
+        "type": "ul",
+        "className": "mt-4 space-y-2",
+        "children": [
+          {
+            "type": "li",
+            "className": "bg-white dark:bg-gray-800 p-4 rounded-md shadow-md",
+            "children": [
+              {
+                "type": "div",
+                "className": "font-bold text-xl mb-2",
+                "textContent": "{{statusCode}}"
+              },
+              {
+                "type": "div",
+                "className": "text-gray-600 dark:text-gray-400",
+                "textContent": "{{statusDescription}}"
+              }
+            ]
+          }
+        ],
+        "dataSource": {
+          "type": "jsonArray",
+          "data": [
+            {
+              "statusCode": "200",
+              "statusDescription": "OK"
+            },
+            {
+              "statusCode": "201",
+              "statusDescription": "Created"
+            },
+            {
+              "statusCode": "204",
+              "statusDescription": "No Content"
+            },
+            {
+              "statusCode": "400",
+              "statusDescription": "Bad Request"
+            },
+            {
+              "statusCode": "401",
+              "statusDescription": "Unauthorized"
+            },
+            {
+              "statusCode": "403",
+              "statusDescription": "Forbidden"
+            },
+            {
+              "statusCode": "404",
+              "statusDescription": "Not Found"
+            },
+            {
+              "statusCode": "500",
+              "statusDescription": "Internal Server Error"
+            }
+          ]
+        }
+      }
+    ],
+    "interactions": [
+      {
+        "event": "onInputChange",
+        "target": "SearchInput",
+        "action": {
+          "type": "callFunction",
+          "function": "filterStatusCodes"
+        }
+      }
+    ]
+  },
+  "functions": [
+    {
+      "name": "filterStatusCodes",
+      "description": "Filters the status code list based on the search input.",
+      "steps": [
+        {
+          "type": "getInputValue",
+          "inputName": "SearchInput",
+          "variableName": "searchTerm"
+        },
+        {
+          "type": "jsonFilter",
+          "data": "{{StatusCodeList.dataSource.data}}",
+          "filterExpression": "statusCode.includes(searchTerm) || statusDescription.toLowerCase().includes(searchTerm.toLowerCase())",
+          "variableName": "filteredStatusCodes"
+        },
+        {
+          "type": "setComponentData",
+          "componentName": "StatusCodeList",
+          "dataSource": {
+            "type": "jsonArray",
+            "data": "filteredStatusCodes"
+          }
+        }
+      ]
+    }
+  ]
+}

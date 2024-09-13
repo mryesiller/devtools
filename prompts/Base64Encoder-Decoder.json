@@ -1,0 +1,95 @@
+{
+  "name": "Base64EncoderDecoder",
+  "description": "A tool to encode and decode text using Base64.",
+  "compositor": {
+    "components": [
+      {
+        "name": "InputText",
+        "type": "textarea",
+        "placeholder": "Enter text to encode or decode...",
+        "className": "w-full p-2 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+      },
+      {
+        "name": "EncodeButton",
+        "type": "button",
+        "label": "Encode",
+        "className": "px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mr-2"
+      },
+      {
+        "name": "DecodeButton",
+        "type": "button",
+        "label": "Decode",
+        "className": "px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+      },
+      {
+        "name": "OutputText",
+        "type": "textarea",
+        "placeholder": "Encoded or decoded text will appear here...",
+        "className": "w-full p-2 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-4",
+        "readOnly": true
+      }
+    ],
+    "interactions": [
+      {
+        "event": "onClick",
+        "target": "EncodeButton",
+        "action": {
+          "type": "callFunction",
+          "function": "encodeBase64"
+        }
+      },
+      {
+        "event": "onClick",
+        "target": "DecodeButton",
+        "action": {
+          "type": "callFunction",
+          "function": "decodeBase64"
+        }
+      }
+    ]
+  },
+  "functions": [
+    {
+      "name": "encodeBase64",
+      "description": "Encodes the input text using Base64.",
+      "steps": [
+        {
+          "type": "getInputValue",
+          "inputName": "InputText",
+          "variableName": "inputText"
+        },
+        {
+          "type": "base64Encode",
+          "data": "{{inputText}}",
+          "variableName": "encodedText"
+        },
+        {
+          "type": "setInputValue",
+          "inputName": "OutputText",
+          "value": "{{encodedText}}"
+        }
+      ]
+    },
+    {
+      "name": "decodeBase64",
+      "description": "Decodes the input text using Base64.",
+      "steps": [
+        {
+          "type": "getInputValue",
+          "inputName": "InputText",
+          "variableName": "inputText"
+        },
+        {
+          "type": "base64Decode",
+          "data": "{{inputText}}",
+          "variableName": "decodedText"
+        },
+        {
+          "type": "setInputValue",
+          "inputName": "OutputText",
+          "value": "{{decodedText}}"
+        }
+      ]
+    }
+  ]
+}

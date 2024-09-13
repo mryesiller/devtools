@@ -1,0 +1,259 @@
+{
+  "name": "JSONFormatter",
+  "description": "A powerful JSON formatting tool with advanced features.",
+  "compositor": {
+    "components": [
+      {
+        "name": "Editor1",
+        "type": "textarea",
+        "placeholder": "Enter first JSON data...",
+        "className": "w-full h-64 p-2 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      },
+      {
+        "name": "Editor2",
+        "type": "textarea",
+        "placeholder": "Enter second JSON data...",
+        "className": "w-full h-64 p-2 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-4"
+      },
+      {
+        "name": "DiffOutput",
+        "type": "pre",
+        "className": "w-full h-64 p-2 bg-gray-100 dark:bg-gray-900 text-black dark:text-white rounded-md overflow-auto mt-4"
+      },
+      {
+        "name": "FormatButton",
+        "type": "button",
+        "label": "Format",
+        "className": "px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      },
+      {
+        "name": "ValidateButton",
+        "type": "button",
+        "label": "Validate",
+        "className": "px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 ml-2"
+      },
+      {
+        "name": "DiffButton",
+        "type": "button",
+        "label": "Diff",
+        "className": "px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 ml-2"
+      },
+      {
+        "name": "CopyButton",
+        "type": "button",
+        "label": "Copy",
+        "className": "px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 ml-2"
+      },
+      {
+        "name": "ClearButton",
+        "type": "button",
+        "label": "Clear",
+        "className": "px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 ml-2"
+      }
+    ],
+    "interactions": [
+      {
+        "event": "onClick",
+        "target": "FormatButton",
+        "action": {
+          "type": "callFunction",
+          "function": "formatJSON"
+        }
+      },
+      {
+        "event": "onClick",
+        "target": "ValidateButton",
+        "action": {
+          "type": "callFunction",
+          "function": "validateJSON"
+        }
+      },
+      {
+        "event": "onClick",
+        "target": "DiffButton",
+        "action": {
+          "type": "callFunction",
+          "function": "diffJSON"
+        }
+      },
+      {
+        "event": "onClick",
+        "target": "CopyButton",
+        "action": {
+          "type": "callFunction",
+          "function": "copyToClipboard"
+        }
+      },
+      {
+        "event": "onClick",
+        "target": "ClearButton",
+        "action": {
+          "type": "callFunction",
+          "function": "clearInput"
+        }
+      }
+    ]
+  },
+  "functions": [
+    {
+      "name": "formatJSON",
+      "description": "Formats the JSON data and displays the formatted output.",
+      "steps": [
+        {
+          "type": "getInputValue",
+          "inputName": "Editor1",
+          "variableName": "jsonData"
+        },
+        {
+          "type": "tryBlock",
+          "trySteps": [
+            {
+              "type": "jsonParse",
+              "data": "jsonData",
+              "variableName": "parsedData"
+            },
+            {
+              "type": "jsonStringify",
+              "data": "parsedData",
+              "spacer": 2,
+              "variableName": "formattedData"
+            },
+            {
+              "type": "setOutputValue",
+              "outputName": "DiffOutput",
+              "value": "formattedData"
+            }
+          ],
+          "catchSteps": [
+            {
+              "type": "setOutputValue",
+              "outputName": "DiffOutput",
+              "value": "Invalid JSON data. Please check the syntax and try again."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "validateJSON",
+      "description": "Validates the JSON data and displays the validation result.",
+      "steps": [
+        {
+          "type": "getInputValue",
+          "inputName": "Editor1",
+          "variableName": "jsonData"
+        },
+        {
+          "type": "tryBlock",
+          "trySteps": [
+            {
+              "type": "jsonParse",
+              "data": "jsonData"
+            },
+            {
+              "type": "setOutputValue",
+              "outputName": "DiffOutput",
+              "value": "Valid JSON data."
+            }
+          ],
+          "catchSteps": [
+            {
+              "type": "setOutputValue",
+              "outputName": "DiffOutput",
+              "value": "Invalid JSON data. Please check the syntax and try again."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "diffJSON",
+      "description": "Compares two JSON data and displays the differences.",
+      "steps": [
+        {
+          "type": "getInputValue",
+          "inputName": "Editor1",
+          "variableName": "jsonData1"
+        },
+        {
+          "type": "getInputValue",
+          "inputName": "Editor2",
+          "variableName": "jsonData2"
+        },
+        {
+          "type": "tryBlock",
+          "trySteps": [
+            {
+              "type": "jsonParse",
+              "data": "jsonData1",
+              "variableName": "parsedData1"
+            },
+            {
+              "type": "jsonParse",
+              "data": "jsonData2",
+              "variableName": "parsedData2"
+            },
+            {
+              "type": "jsonDiff",
+              "data1": "parsedData1",
+              "data2": "parsedData2",
+              "variableName": "diffResult"
+            },
+            {
+              "type": "setOutputValue",
+              "outputName": "DiffOutput",
+              "value": "diffResult"
+            }
+          ],
+          "catchSteps": [
+            {
+              "type": "setOutputValue",
+              "outputName": "DiffOutput",
+              "value": "Invalid JSON data. Please check the syntax and try again."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "copyToClipboard",
+      "description": "Copies the output data to the clipboard.",
+      "steps": [
+        {
+          "type": "getOutputValue",
+          "outputName": "DiffOutput",
+          "variableName": "outputData"
+        },
+        {
+          "type": "copyToClipboard",
+          "data": "outputData"
+        },
+        {
+          "type": "showNotification",
+          "message": "Output data copied to clipboard!"
+        }
+      ]
+    },
+    {
+      "name": "clearInput",
+      "description": "Clears the input and output fields.",
+      "steps": [
+        {
+          "type": "setInputValue",
+          "inputName": "Editor1",
+          "value": ""
+        },
+        {
+          "type": "setInputValue",
+          "inputName": "Editor2",
+          "value": ""
+        },
+        {
+          "type": "setOutputValue",
+          "outputName": "DiffOutput",
+          "value": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "name": "RegexpTester",
+  "description": "A tool to test regular expressions against a given text.",
+  "compositor": {
+    "components": [
+      {
+        "name": "RegexpInput",
+        "type": "input",
+        "placeholder": "Enter regular expression...",
+        "className": "w-full p-2 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+      },
+      {
+        "name": "TestText",
+        "type": "textarea",
+        "placeholder": "Enter text to test against...",
+        "className": "w-full p-2 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+      },
+      {
+        "name": "TestButton",
+        "type": "button",
+        "label": "Test",
+        "className": "px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+      },
+      {
+        "name": "MatchesContainer",
+        "type": "div",
+        "className": "space-y-2",
+        "children": [
+          {
+            "type": "div",
+            "textContent": "Matches:"
+          },
+          {
+            "type": "ul",
+            "className": "list-disc list-inside",
+            "children": [
+              {
+                "type": "li",
+                "textContent": "{{match}}",
+                "iteratorName": "matches"
+              }
+            ],
+            "condition": "{{matches.length > 0}}"
+          },
+          {
+            "type": "div",
+            "textContent": "No matches found.",
+            "condition": "{{matches.length === 0}}"
+          }
+        ]
+      }
+    ],
+    "interactions": [
+      {
+        "event": "onClick",
+        "target": "TestButton",
+        "action": {
+          "type": "callFunction",
+          "function": "testRegexp"
+        }
+      }
+    ]
+  },
+  "functions": [
+    {
+      "name": "testRegexp",
+      "description": "Tests the regular expression against the given text.",
+      "steps": [
+        {
+          "type": "getInputValue",
+          "inputName": "RegexpInput",
+          "variableName": "regexp"
+        },
+        {
+          "type": "getInputValue",
+          "inputName": "TestText",
+          "variableName": "text"
+        },
+        {
+          "type": "regexp",
+          "pattern": "{{regexp}}",
+          "text": "{{text}}",
+          "variableName": "matches"
+        }
+      ]
+    }
+  ]
+}

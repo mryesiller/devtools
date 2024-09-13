@@ -1,0 +1,181 @@
+{
+  "name": "IPAddressLookup",
+  "description": "A tool to lookup information about an IP address using GeoJS API.",
+  "compositor": {
+    "components": [
+      {
+        "name": "IPAddressInput",
+        "type": "input",
+        "placeholder": "Enter an IP address...",
+        "className": "w-full p-2 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      },
+      {
+        "name": "LookupButton",
+        "type": "button",
+        "label": "Lookup",
+        "className": "px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mt-4"
+      },
+      {
+        "name": "LoadingIndicator",
+        "type": "div",
+        "className": "mt-4",
+        "children": [
+          {
+            "type": "div",
+            "className": "w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto",
+            "condition": "{{isLoading}}"
+          }
+        ]
+      },
+      {
+        "name": "ResultContainer",
+        "type": "div",
+        "className": "mt-8 bg-white dark:bg-gray-800 p-4 rounded-md shadow-md",
+        "children": [
+          {
+            "type": "div",
+            "className": "font-bold text-xl mb-2",
+            "textContent": "IP Address Information"
+          },
+          {
+            "type": "div",
+            "className": "mb-2",
+            "children": [
+              {
+                "type": "span",
+                "className": "font-bold",
+                "textContent": "IP Address: "
+              },
+              {
+                "type": "span",
+                "textContent": "{{ipAddress}}"
+              }
+            ]
+          },
+          {
+            "type": "div",
+            "className": "mb-2",
+            "children": [
+              {
+                "type": "span",
+                "className": "font-bold",
+                "textContent": "Country: "
+              },
+              {
+                "type": "span",
+                "textContent": "{{country}}"
+              }
+            ]
+          },
+          {
+            "type": "div",
+            "className": "mb-2",
+            "children": [
+              {
+                "type": "span",
+                "className": "font-bold",
+                "textContent": "City: "
+              },
+              {
+                "type": "span",
+                "textContent": "{{city}}"
+              }
+            ]
+          },
+          {
+            "type": "div",
+            "children": [
+              {
+                "type": "span",
+                "className": "font-bold",
+                "textContent": "Latitude: "
+              },
+              {
+                "type": "span",
+                "textContent": "{{latitude}}"
+              }
+            ]
+          },
+          {
+            "type": "div",
+            "children": [
+              {
+                "type": "span",
+                "className": "font-bold",
+                "textContent": "Longitude: "
+              },
+              {
+                "type": "span",
+                "textContent": "{{longitude}}"
+              }
+            ]
+          }
+        ],
+        "condition": "{{!isLoading}}"
+      }
+    ],
+    "interactions": [
+      {
+        "event": "onClick",
+        "target": "LookupButton",
+        "action": {
+          "type": "callFunction",
+          "function": "lookupIPAddress"
+        }
+      }
+    ]
+  },
+  "functions": [
+    {
+      "name": "lookupIPAddress",
+      "description": "Looks up information about the entered IP address using GeoJS API.",
+      "steps": [
+        {
+          "type": "getInputValue",
+          "inputName": "IPAddressInput",
+          "variableName": "ipAddress"
+        },
+        {
+          "type": "setVariable",
+          "variableName": "isLoading",
+          "value": true
+        },
+        {
+          "type": "fetch",
+          "url": "https://get.geojs.io/v1/ip/geo/{{ipAddress}}.json",
+          "variableName": "response"
+        },
+        {
+          "type": "jsonParse",
+          "data": "{{response.data}}",
+          "variableName": "ipInfo"
+        },
+        {
+          "type": "setVariable",
+          "variableName": "country",
+          "value": "{{ipInfo.country}}"
+        },
+        {
+          "type": "setVariable",
+          "variableName": "city",
+          "value": "{{ipInfo.city}}"
+        },
+        {
+          "type": "setVariable",
+          "variableName": "latitude",
+          "value": "{{ipInfo.latitude}}"
+        },
+        {
+          "type": "setVariable",
+          "variableName": "longitude",
+          "value": "{{ipInfo.longitude}}"
+        },
+        {
+          "type": "setVariable",
+          "variableName": "isLoading",
+          "value": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 # DevTools
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mryesiller/devtools/main/public/logo-light-v11.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mryesiller/devtools/main/public/logo-dark-v11.svg">
-  <img alt="DevTools Logo" src="https://raw.githubusercontent.com/mryesiller/developers-toolkit/main/public/logo-light.svg" width="200" height="50">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mryesiller/devtools/main/public/assets/logo-light-v11.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mryesiller/devtools/main/public/assets/logo-dark-v11.svg">
+  <img alt="DevTools Logo" src="https://raw.githubusercontent.com/mryesiller/devtools/main/public/assets/logo-light-v11.svg" width="100" height="100">
 </picture>
 
 ## 🚀 About

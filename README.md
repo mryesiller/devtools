@@ -1,6 +1,10 @@
-# DevTools Toolkit
+# DevTools
 
-![DevTools Toolkit Logo](https://www.devtools.tools/assets/logo-light-v11.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mryesiller/devtools/main/public/logo-light-v11.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mryesiller/devtools/main/public/logo-dark-v11.svg">
+  <img alt="DevTools Logo" src="https://raw.githubusercontent.com/mryesiller/developers-toolkit/main/public/logo-light.svg" width="200" height="50">
+</picture>
 
 ## 🚀 About
 
@@ -23,34 +27,45 @@ The project aims to inspire developers by showcasing how AI can assist in creati
 
 The Developer's Toolkit includes the following tools:
 
-1. **Code Formatter** 📝
-
-   - Format and prettify code in various languages
-   - [View Prompt](https://github.com/mryesiller/Devtools/tree/main/prompts/code-formatter.json)
-
-2. **JSON Validator** ✔️
+1. **JSON Formatter** 📝
 
    - Validate and format JSON data
-   - [View Prompt](https://github.com/mryesiller/Devtools/tree/main/prompts/json-validator.json)
+   - [View Prompt](https://github.com/mryesiller/devtools/tree/main/prompts/JSON-formatter.json)
 
-3. **Color Picker** 🎨
+2. **HTTP Status Code Reference** ✔️
+
+   - Reference HTTP status codes
+   - [View Prompt](https://github.com/mryesiller/devtools/tree/main/prompts/HTTP-statusCode-reference.json)
+
+3. **Color Generator** 🎨
 
    - Interactive color selection with various color models
-   - [View Prompt](https://github.com/mryesiller/Devtools/tree/main/prompts/color-picker.json)
+   - Note: This tool was created by Cursor Composer with various texts.
 
-4. **Markdown Editor** 📘
+4. **Hash Generator** 📘
 
-   - Live Markdown editor with preview functionality
-   - [View Prompt](https://github.com/mryesiller/Devtools/tree/main/prompts/markdown-editor.json)
+   - Generate hashes for data integrity
+   - [View Prompt](https://github.com/mryesiller/devtools/tree/main/prompts/hash-generator.json)
 
 5. **RegEx Tester** 🔍
 
    - Test and explain regular expressions
-   - [View Prompt](https://github.com/mryesiller/Devtools/tree/main/prompts/regex-tester.json)
+   - [View Prompt](https://github.com/mryesiller/devtools/tree/main/prompts/regex-tester.json)
 
 6. **Base64 Encoder/Decoder** 🔐
+
    - Convert text to and from Base64 encoding
-   - [View Prompt](https://github.com/mryesiller/Devtools/tree/main/prompts/base64-encoder-decoder.json)
+   - [View Prompt](https://github.com/mryesiller/devtools/tree/main/prompts/base64-encoder-decoder.json)
+
+7. **Timestamp Converter** 🕒
+
+   - Convert Unix timestamps to human-readable dates and vice versa
+   - [View Prompt](https://github.com/mryesiller/devtools/tree/main/prompts/timestamp-converter.json)
+
+8. **IP Address Lookup** 🔗
+
+   - Lookup IP addresses and get detailed information about them
+   - [View Prompt](https://github.com/mryesiller/devtools/tree/main/prompts/ip-address-lookup.json)
 
 Each tool is designed to be user-friendly and efficient, catering to common developer needs. The linked JSON files contain the prompts used to generate each tool, providing insight into the AI-assisted development process.
 
@@ -91,6 +106,10 @@ This project is open-source and available under the MIT License.
 
 Special thanks to the AI assistants and the open-source community for making this project possible. This project demonstrates the potential of AI in assisting developers and creating robust applications.
 
+## 👨‍💻 Creator
+
+This project was created and maintained by [Goksel Yesiller](https://github.com/mryesiller).
+
 ---
 
-<p align="center">Made with ❤️ and AI</p>
+<p align="center">Made with ❤️ and AI by MrYesiller</p>

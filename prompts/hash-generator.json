@@ -1,0 +1,88 @@
+{
+  "name": "HashGenerator",
+  "description": "A tool to generate hash values for a given text using various algorithms.",
+  "compositor": {
+    "components": [
+      {
+        "name": "InputText",
+        "type": "textarea",
+        "placeholder": "Enter text to generate hash...",
+        "className": "w-full p-2 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+      },
+      {
+        "name": "AlgorithmSelect",
+        "type": "select",
+        "options": [
+          {
+            "label": "MD5",
+            "value": "md5"
+          },
+          {
+            "label": "SHA-1",
+            "value": "sha1"
+          },
+          {
+            "label": "SHA-256",
+            "value": "sha256"
+          },
+          {
+            "label": "SHA-512",
+            "value": "sha512"
+          }
+        ],
+        "className": "w-full p-2 bg-white dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+      },
+      {
+        "name": "GenerateButton",
+        "type": "button",
+        "label": "Generate Hash",
+        "className": "px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+      },
+      {
+        "name": "OutputHash",
+        "type": "input",
+        "readOnly": true,
+        "className": "w-full p-2 bg-gray-100 dark:bg-gray-700 text-black dark:text-white border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      }
+    ],
+    "interactions": [
+      {
+        "event": "onClick",
+        "target": "GenerateButton",
+        "action": {
+          "type": "callFunction",
+          "function": "generateHash"
+        }
+      }
+    ]
+  },
+  "functions": [
+    {
+      "name": "generateHash",
+      "description": "Generates a hash value for the given text using the selected algorithm.",
+      "steps": [
+        {
+          "type": "getInputValue",
+          "inputName": "InputText",
+          "variableName": "text"
+        },
+        {
+          "type": "getSelectValue",
+          "selectName": "AlgorithmSelect",
+          "variableName": "algorithm"
+        },
+        {
+          "type": "hash",
+          "data": "{{text}}",
+          "algorithm": "{{algorithm}}",
+          "variableName": "hashValue"
+        },
+        {
+          "type": "setInputValue",
+          "inputName": "OutputHash",
+          "value": "{{hashValue}}"
+        }
+      ]
+    }
+  ]
+}

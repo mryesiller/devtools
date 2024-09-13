@@ -1,6 +1,6 @@
-# Developer's Toolkit
+# DevTools Toolkit
 
-![Developer's Toolkit Logo](https://path-to-your-logo.png)
+![DevTools Toolkit Logo](https://www.devtools.tools/assets/logo-light-v11.svg)
 
 ## 🚀 About
 
@@ -26,31 +26,31 @@ The Developer's Toolkit includes the following tools:
 1. **Code Formatter** 📝
 
    - Format and prettify code in various languages
-   - [View Prompt](https://github.com/mryesiller/developers-toolkit/blob/main/prompts/code-formatter.json)
+   - [View Prompt](https://github.com/mryesiller/Devtools/tree/main/prompts/code-formatter.json)
 
 2. **JSON Validator** ✔️
 
    - Validate and format JSON data
-   - [View Prompt](https://github.com/mryesiller/developers-toolkit/blob/main/prompts/json-validator.json)
+   - [View Prompt](https://github.com/mryesiller/Devtools/tree/main/prompts/json-validator.json)
 
 3. **Color Picker** 🎨
 
    - Interactive color selection with various color models
-   - [View Prompt](https://github.com/mryesiller/developers-toolkit/blob/main/prompts/color-picker.json)
+   - [View Prompt](https://github.com/mryesiller/Devtools/tree/main/prompts/color-picker.json)
 
 4. **Markdown Editor** 📘
 
    - Live Markdown editor with preview functionality
-   - [View Prompt](https://github.com/mryesiller/developers-toolkit/blob/main/prompts/markdown-editor.json)
+   - [View Prompt](https://github.com/mryesiller/Devtools/tree/main/prompts/markdown-editor.json)
 
 5. **RegEx Tester** 🔍
 
    - Test and explain regular expressions
-   - [View Prompt](https://github.com/mryesiller/developers-toolkit/blob/main/prompts/regex-tester.json)
+   - [View Prompt](https://github.com/mryesiller/Devtools/tree/main/prompts/regex-tester.json)
 
 6. **Base64 Encoder/Decoder** 🔐
    - Convert text to and from Base64 encoding
-   - [View Prompt](https://github.com/mryesiller/developers-toolkit/blob/main/prompts/base64-encoder-decoder.json)
+   - [View Prompt](https://github.com/mryesiller/Devtools/tree/main/prompts/base64-encoder-decoder.json)
 
 Each tool is designed to be user-friendly and efficient, catering to common developer needs. The linked JSON files contain the prompts used to generate each tool, providing insight into the AI-assisted development process.
 
